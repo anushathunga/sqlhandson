@@ -1,0 +1,263 @@
+
+a)Create the table PROGRAMMER with the given information using SQL CREATE TABLE command:
+
+ mysql> create database program;
+Query OK, 1 row affected (0.31 sec)
+
+mysql> use program;
+Database changed
+mysql> create table PROGRAMMER(
+    -> EmpNo int(5),
+    -> ProjId varchar(5),
+    -> LastName varchar(30),
+    -> FirstName varchar(30),
+    -> HireDate date,
+    -> Language varchar(15),
+    -> TaskNo int(2),
+    -> Previlege varchar(25));
+Query OK, 0 rows affected, 2 warnings (1.03 sec)
+......................................................................................................................................
+
+
+b)Insert the following data into the PROGRAMMER table:
+
+
+mysql> insert into PROGRAMMER(EmpNo,LastName,FirstName,HireDate,ProjId,Language,TaskNo,Privilege) values(201,'Gupta','Saurav',1/1/95,'NPR,'VB',52,'Secret'),(390,'Ghosh','Pinky',1/05/93,'KCW','Java',11,'Top secret'),(789,'Agarwal','Praveen',08/31/98,''Rnc','VB',11,'Secret'),(134,'Chudhary','Supriyo',07/15/95,'TIPPS','C++',52,'Secret'),(896,'Jha','Ranjit',06/15/97,'KCW','Java',10,'Top secret'),(345,'John','Peter',11/15/99,'TIPPS','Java',52,''),(563,'Anderson,'Andy',08/15/94,'NITTS','C++',89,'Confidential');
+
+Query OK, 7 row affected (2.45 sec)
+......................................................................................................................................................
+
+c)Create a table WEATHER with following data:
+mysql> create table WEATHER(
+    -> city varchar(20),
+    -> state varchar(20),
+    -> high int(4),
+    -> low int(4));
+Query OK, 0 rows affected, 2 warnings (1.57 sec)
+
+mysql> insert into WEATHER(city,state,high,low) values('calcutta','west bengal',105,90),('trivandrum','kerala',101,92),('mumbai','maharastra',88,69),('banalore','karnataka',77,60),('newdelhi','',80,72);
+Query OK, 5 rows affected (0.22 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+..................................................................................................................................................................
+
+d)Create a table BOOKS with the following data
+
+mysql> create table BOOKS(
+    -> bookid int(5),
+    -> title varchar(30),
+    -> topicid varchar(30),
+    -> publishername varchar(20),
+    -> placeofpublication varchar(20),
+    -> price int(4),
+    -> purchasedate date,
+    -> shelfno varchar(20));
+Query OK, 0 rows affected, 2 warnings (1.32 sec)
+
+insert into BOOKS(bookid,title,topicid,publishername,placeofpublication,price,purchasedate,shelfno) values(8293,'dbms','dbi','prentice hall','mumbai',255,1/1/95,'s11'),(5645,'dbms','dbi','pearson education','mumbai',655,1/1/93,'s12'),(6565,'c','c1','tmh','mumbai',840,08/31/98,'s66'),(6567,'c++','cplus','abc publishers','delhi',300,07/15/95,'s77'),(4576,'java','java1','guru govind publications','delhi',500,06/15/97,'s87'),(3433,'oops','oops1','dave publishers','pune',600,11/15/99,'s56'),(4655,'sad','sad1','sajan publications','cochin',700,08/15/94,'s76');
+Query OK, 7 rows affected (0.22 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+..............................................................................................................................................................................
+
+ i.Saurav Gupta is assigned a different project with id NITTS and he would work with C++ now. Update this change in the PROGRAMMER table.
+ update PROGRAMMER SET ProjId='NITTS',Language='C++' where FirstName='Saurav';
+Query OK, 1 row affected (0.12 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+........................................................................................................................................................................
+
+ i.The books on DBMS are shifted to shelf with number S10. Please update this detail in BOOKS table
+
+mysql> update BOOKS set shelfno='s10' where title='dbms';
+Query OK, 0 rows affected (0.04 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+.......................................................................................................................................................................
+
+  ii.Supriyo Chaudhury has resigned his job. Incorporate this change in the table PROGRAMMER.
+
+mysql> delete from PROGRAMMER where FirstName='Supriyo';
+Query OK, 1 row affected (0.13 sec)
+
+...........................................................................................................................................................................
+iii.A new column to state the nature of the climate with either of the value (rainy, cloudy, sunny, snow) is to be added in the WEATHER Table.
+mysql> alter table WEATHER add Climate varchar(20);
+Query OK, 0 rows affected (1.24 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+.........................................................................................................................................................................
+
+  iv. Delete the table WEATHER from database.
+
+mysql> DELETE from WEATHER;
+Query OK, 5 rows affected (0.07 sec)
+
+.............................................................................................................................................................................
+CUSTOMER Table Schema:
+
+
+mysql> create table CUSTOMER(
+    -> CUSTID int primary key,
+    -> FNAME varchar(30),
+    -> LNAME varchar(30),
+    -> ADDRESS varchar(50),
+    -> PHONENO int Not Null,
+    -> CITY varchar(20),
+    -> COUNTRY varchar(20),
+    -> DATEFIRSTPURCHASED date,
+    -> SUPPLIERID int);
+Query OK, 0 rows affected (0.71 sec)
+
+
+ insert into CUSTOMER(CUSTID,FNAME,LNAME,ADDRESS,PHONENO,CITY,COUNTRY,DATEFIRSTPURCHASED,SUPPLIERID) values(1001,'das','jeyaseelam','119,park avenue,II street',9841093428,'coimbatore','india',10/01/2004,1);
+Query OK, 1 row affected (0.13 sec)
+ insert into CUSTOMER(CUSTID,FNAME,LNAME,ADDRESS,PHONENO,CITY,COUNTRY,DATEFIRSTPURCHASED,SUPPLIERID) values(2001,'gopi','govindraj','241 ,I floor,kamaraj street,madipakkam',9444124590,'chennai','india',25/03/2005,4);
+Query OK, 1 row affected (0.09 sec)
+mysql>  insert into CUSTOMER(CUSTID,FNAME,LNAME,ADDRESS,PHONENO,CITY,COUNTRY,DATEFIRSTPURCHASED,SUPPLIERID) values(1201,'dilep','kishore','43,II avenue anna nagar','9997234534,'banglore','india',20/07/2004,2),(1300,'anand','chowdary','42/1 sector 1,IIstreet',9841054348,'bangalore','india',15/05/2005,2),(1220,'chandra','nagarajan','83,lalbagh',98410672356,'bangalore','india',12/02/2006,4);
+
+mysql>  insert into CUSTOMER(CUSTID,FNAME,LNAME,ADDRESS,PHONENO,CITY,COUNTRY,DATEFIRSTPURCHASED,SUPPLIERID) values(1221,'abhisek','kumar','13,kishori park',94447623901,'chennai','india',21/05/2004,1);
+Query OK, 1 row affected (0.09 sec)
+mysql>  insert into CUSTOMER(CUSTID,FNAME,LNAME,ADDRESS,PHONENO,CITY,COUNTRY,DATEFIRSTPURCHASED,SUPPLIERID) values(1320,'nikil','pandit','218,alwaanya street',94448923091,'salem','india',21/04/2006,3),(1222,'meenu','monica','c11 chruch road',98410563421,'trichy','india',30/07/2004,1),(1225,'pavan','kumar','128/A,north mada street',99934782103,'madurai','india',18/07/2004,4);
+Query OK, 3 rows affected (0.13 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+............................................................................................................................
+SUPPLIER Table Schema:
+mysql> create table SUPPLIER(
+    -> SUPPLIERID int primary key,
+    -> SNAME varchar(30),
+    -> SCITY varchar(30),
+    -> SPHONE VARCHAR(20)Not Null,
+    -> EMAIL varchar(50));
+Query OK, 0 rows affected (1.78 sec)
+mysql>  insert into SUPPLIER(SUPPLIERID,SNAME,SCITY,SPHONE,EMAIL)values(1,'dilip','chennai',8999900000,'dilip@abc.co.in'),(2,'tarun','madurai',8999911111,'tarun@xyz.com');
+Query OK, 2 rows affected (0.13 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+mysql>  insert into SUPPLIER(SUPPLIERID,SNAME,SCITY,SPHONE,EMAIL)values(3,'naresh','coimbattore',899933333,'g.naresh@xyzl.com'),(4,'ganesan','trichy',8999933333,'ganesan_83@jik.com');
+Query OK, 2 rows affected (0.09 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+.......................................................................................................................................
+ORDERS Table Schema:
+
+mysql> CREATE TABLE ORDERS(
+    -> ORDERID numeric(1) primary key,
+    -> ORDERDATE date,
+    -> custid NUMERIC(4),
+    -> QUANTITY numeric(2),
+    -> ITEMID numeric(2));
+Query OK, 0 rows affected (1.08 sec)
+
+mysql> insert into ORDERS(ORDERID,ORDERDATE,custid,QUANTITY,ITEMID) values(1,12/01/2004,1001,30,25);
+Query OK, 1 row affected (0.08 sec)
+mysql> insert into ORDERS(ORDERID,ORDERDATE,custid,QUANTITY,ITEMID) values(2,6/05/2005,1202,38,24),(3,16/12/2006,1220,10,22),(4,21/05/2004,1233,12,21);
+Query OK, 3 rows affected (0.11 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+.................................................................................................................................................................
+ITEMS Table Schema:
+
+mysql> create table ITEMS(
+    -> ITEMID numeric(3) primary key,
+    -> ITEMNAME varchar(35) not null,
+    -> SUPPLIEDID numeric(3),
+    -> MINQTY numeric(2) not null,
+    -> MAXQTY numeric(2) not null,
+    -> PRICE numeric(5,2));
+Query OK, 0 rows affected (1.30 sec)
+
+mysql>  insert into ITEMS(ITEMID,ITEMNAME,SUPPLIEDID,MINQTY,MAXQTY,PRICE) values(20,'pears soap',4,7,20,30.00);
+Query OK, 1 row affected (0.08 sec)
+mysql>  insert into ITEMS(ITEMID,ITEMNAME,SUPPLIEDID,MINQTY,MAXQTY,PRICE) values(21,'V.V.D COCONUT OIL 200 ML',2,8,15,79.00),(22,'PONDS POWEDER 400g',3,6,25,106.00),(24,'REYNOLDS PEN BLUE',1,10,30,15.00),(25,'MYSORE SANDLE SOAP',4,7,25,25.00);
+Query OK, 4 rows affected (0.10 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+mysql>  insert into ITEMS(ITEMID,ITEMNAME,SUPPLIEDID,MINQTY,MAXQTY,PRICE) values(26,'FAIR AND LOVELY CREAM',3,5,15,55.00),(27,'REXONO DEO SPRAY',2,5,20,100.00),(28,'DOVE SOAP',4,7,15,85.00);
+Query OK, 3 rows affected (0.09 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+..............................................................................................................................................
+  v.Display all customers from Chennai.
+mysql> select *from CUSTOMER where city='chennai';
++--------+---------+-----------+----------------------------------------+-------------+---------+---------+--------------------+------------+
+| CUSTID | FNAME   | LNAME     | ADDRESS                                | PHONENO     | CITY    | COUNTRY | DATEFIRSTPURCHASED | SUPPLIERID |
++--------+---------+-----------+----------------------------------------+-------------+---------+---------+--------------------+------------+
+|   1221 | abhisek | kumar     | 13,kishori park                        | 94447623901 | chennai | india   |2004-01-10          |          1 |
+|   2001 | gopi    | govindraj | 241 ,I floor,kamaraj street,madipakkam | 9444124590  | chennai | india   | 2005-03-25         |          4 |
++--------+---------+-----------+----------------------------------------+-------------+---------+---------+--------------------+------------+
+2 rows in set (0.05 sec)
+.............................................................................................................................................................
+  vi.Display the details of all customers who purchased from the supplier 2.
+mysql> select * from CUSTOMER where SUPPLIERID=2;
++--------+-------+----------+-------------------------+------------+-----------+---------+--------------------+------------+
+| CUSTID | FNAME | LNAME    | ADDRESS                 | PHONENO    | CITY      | COUNTRY | DATEFIRSTPURCHASED | SUPPLIERID |
++--------+-------+----------+-------------------------+------------+-----------+---------+--------------------+------------+
+|   1201 | dilep | kishore  | 43,II avenue anna nagar | 9997234534 | banglore  | india   | 2004-08-20         |          2 |
+|   1300 | anand | chowdary | 42/1 sector 1,IIstreet  | 9841054348 | bangalore | india   | 2004-08-20         |          2 |
++--------+-------+----------+-------------------------+------------+-----------+---------+--------------------+------------+
+2 rows in set (0.00 sec)
+.......................................................................................................................................
+vii.Display CUSTID, FNAME, LNAME of all customers whose purchase date is after January 2005.
+| CUSTID | FNAME   | LNAME      |
+|   1001 | das     | jeyaseelam | |
+|   1220 | chandra | nagarajan  | 
+|   1320 | nikil   | pandit     |
+
+3 rows in set (0.00 sec)
+......................................................................................................................................
+viii.Display the details of all suppliers who are from location Coimbatore.
+mysql> SELECT * FROM SUPPLIER WHERE SCITY='coimbattore';
++------------+--------+-------------+-----------+-------------------+
+| SUPPLIERID | SNAME  | SCITY       | SPHONE    | EMAIL             |
++------------+--------+-------------+-----------+-------------------+
+|          3 | naresh | coimbattore | 899933333 | g.naresh@xyzl.com |
++------------+--------+-------------+-----------+-------------------+
+1 row in set (0.00 sec)
+.............................................................................................................................................
+   ix.Display the details of all suppliers whose name stars with G.
+
+mysql>  select * from SUPPLIER WHERE SNAME like 'g%';
++------------+---------+--------+------------+--------------------+
+| SUPPLIERID | SNAME   | SCITY  | SPHONE     | EMAIL              |
++------------+---------+--------+------------+--------------------+
+|          4 | ganesan | trichy | 8999933333 | ganesan_83@jik.com |
++------------+---------+--------+------------+--------------------+
+1 row in set (0.04 sec)
+......................................................................................................................................................
+x.Display the details of all customers, who do not have the alphabet e in their LNAME.
+
+mysql> select * from CUSTOMER WHERE LNAME NOT LIKE '%e%';
++--------+---------+-----------+----------------------------------------+-------------+-----------+---------+--------------------+------------+
+| CUSTID | FNAME   | LNAME     | ADDRESS                                | PHONENO     | CITY      | COUNTRY | DATEFIRSTPURCHASED | SUPPLIERID |
++--------+---------+-----------+----------------------------------------+-------------+-----------+---------+--------------------+------------+
+|   1220 | chandra | nagarajan | 83,lalbagh                             | 98410672356 | bangalore | india   | 2005-05-25         |          4 |
+|   1221 | abhisek | kumar     | 13,kishori park                        | 94447623901 | chennai   | india   | 2004-01-10         |          1 |
+|   1222 | meenu   | monica    | c11 chruch road                        | 98410563421 | trichy    | india   | 2004-01-10         |          1 |
+|   1225 | pavan   | kumar     | 128/A,north mada street                | 99934782103 | madurai   | india   | 2005-05-25         |          4 |
+|   1300 | anand   | chowdary  | 42/1 sector 1,IIstreet                 | 9841054348  | bangalore | india   |2004-08-20          |          2 |
+|   1320 | nikil   | pandit    | 218,alwaanya street                    | 94448923091 | salem     | india   | 2006-04-21         |          3 |
+|   2001 | gopi    | govindraj | 241 ,I floor,kamaraj street,madipakkam | 9444124590  | chennai   | india   | 2005-05-25         |          4 |
++--------+---------+-----------+----------------------------------------+-------------+-----------+---------+--------------------+------------+
+7 rows in set (0.00 sec)
+...............................................................................................................................................................................
+xii.Display the details of all the orders where the quantity is less than 35.
+
+mysql> SELECT * FROM ORDERS WHERE QUANTITY<35;
++---------+------------+--------+----------+--------+
+| ORDERID | ORDERDATE  | custid | QUANTITY | ITEMID |
++---------+------------+--------+----------+--------+
+|       1 | 2004-01-12 |   1001 |       30 |     25 |
+|       3 | 2006-05-16 |   1220 |       10 |     22 |
+|       4 | 2004-05-21 |   1233 |       12 |     21 |
++---------+------------+--------+----------+--------+
+3 rows in set (0.05 sec)
+............................................................................................................................................................................
+ xiii.Display the details of the items supplied by supplier 4.
+
+mysql> SELECT * FROM ITEMS WHERE SUPPLIEDID=4;
++--------+--------------------+------------+--------+--------+-------+
+| ITEMID | ITEMNAME           | SUPPLIEDID | MINQTY | MAXQTY | PRICE |
++--------+--------------------+------------+--------+--------+-------+
+|     20 | pears soap         |          4 |      7 |     20 | 30.00 |
+|     25 | MYSORE SANDLE SOAP |          4 |      7 |     25 | 25.00 |
+|     28 | DOVE SOAP          |          4 |      7 |     15 | 85.00 |
++--------+--------------------+------------+--------+--------+-------+
+3 rows in set (0.05 sec)
+............................................................................................................................................................
+xiv.Display the details of all items where SUPPLIERID is 3 and the MINQTY is greater than 7 order by ITEMID.
+
+mysql> SELECT * FROM ITEMS WHERE SUPPLIEDID=3 AND MINQTY>7 ORDERBY ITEMID;
+Empty set (0.00 sec)
+
+
